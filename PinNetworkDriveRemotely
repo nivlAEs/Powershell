@@ -1,0 +1,2 @@
+$o = new-object -com shell.application
+$o.Namespace('\\location\').Self.InvokeVerb("pintohome") #change the link to required and run this through remote management tool 
