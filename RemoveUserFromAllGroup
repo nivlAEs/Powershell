@@ -7,5 +7,5 @@ $groups = Get-MgUserMemberOf -UserId $user.Id
 
 
 foreach ($group in $groups) {
-    Remove-MgGroupMember -GroupId $group.Id -MemberId $user.Id
+     Remove-MgGroupMemberByRef -GroupId $group.Id -DirectoryObjectId $user.Id
 }
