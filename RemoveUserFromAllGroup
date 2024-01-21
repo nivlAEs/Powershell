@@ -1,0 +1,11 @@
+#connect to Azuer AD, this is using Microsoft Graph
+# Get the user
+$user = Get-MgUser -Filter "userPrincipalName eq 'loginame'"
+
+# Get the groups where the user is a member
+$groups = Get-MgUserMemberOf -UserId $user.Id
+
+
+foreach ($group in $groups) {
+    Remove-MgGroupMember -GroupId $group.Id -MemberId $user.Id
+}
